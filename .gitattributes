@@ -1,14 +1,22 @@
-# EXCLUDE Unity YAML/Serialization files to fix language stats
-
+# 1. EXCLUDE all Unity serialization and metadata files
+# These are the files that falsely inflate the ShaderLab count.
 *.mat linguist-vendored
 *.asset linguist-vendored
 *.prefab linguist-vendored
 *.unity linguist-vendored
 *.meta linguist-vendored
 
-# Also mark C# explicitly to ensure it is fully counted
-*.cs linguist-language=C#
+# 2. EXCLUDE all other non-C# development files
+# This makes C# count even higher by ignoring other common files:
+*.json linguist-vendored  # Package manifests, build settings, etc.
+*.asmdef linguist-vendored # Assembly definition files
+*.shader linguist-vendored # You can even ignore your own shader code to prioritize C# (Use only if you want C# to be 95%+)
+*.hlsl linguist-vendored
+*.cginc linguist-vendored
+*.txt linguist-vendored
+*.md linguist-vendored # Readme files
+*.xml linguist-vendored # Configuration files
 
-# You can mark the HLSL files as well for accuracy, though they are code
-*.hlsl linguist-language=HLSL
-*.cginc linguist-language=HLSL
+# 3. EXPLICITLY COUNT C#
+# This ensures that all your game logic files are correctly identified.
+*.cs linguist-language=C#
