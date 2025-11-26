@@ -61,14 +61,3 @@ Assets/StreamingAssets/aa/
 
 ## Auto-generated
 ExportedObj/
-
-# Unity asset serialization files that are not handwritten code
-# Mark these as 'vendored' (third-party/generated) so they are excluded
-# from the language statistics entirely.
-
-# Exclude Materials, Scenes, Prefabs, and other YAML assets
-*.mat linguist-vendored
-*.asset linguist-vendored
-*.prefab linguist-vendored
-*.unity linguist-vendored
-*.meta linguist-vendored
