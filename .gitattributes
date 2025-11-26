@@ -1,10 +1,14 @@
-# Unity asset serialization files that are not handwritten code
-# Mark these as 'vendored' (third-party/generated) so they are excluded
-# from the language statistics entirely.
+# EXCLUDE Unity YAML/Serialization files to fix language stats
 
-# Exclude Materials, Scenes, Prefabs, and other YAML assets
 *.mat linguist-vendored
 *.asset linguist-vendored
 *.prefab linguist-vendored
 *.unity linguist-vendored
 *.meta linguist-vendored
+
+# Also mark C# explicitly to ensure it is fully counted
+*.cs linguist-language=C#
+
+# You can mark the HLSL files as well for accuracy, though they are code
+*.hlsl linguist-language=HLSL
+*.cginc linguist-language=HLSL
